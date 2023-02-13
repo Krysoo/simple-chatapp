@@ -1,0 +1,15 @@
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\bin\Debug\net6.0\ChatApp.exe
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\bin\Debug\net6.0\ChatApp.deps.json
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\bin\Debug\net6.0\ChatApp.runtimeconfig.json
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\bin\Debug\net6.0\ChatApp.dll
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\bin\Debug\net6.0\ChatApp.pdb
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ChatApp.csproj.AssemblyReference.cache
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ChatApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ChatApp.AssemblyInfoInputs.cache
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ChatApp.AssemblyInfo.cs
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ChatApp.csproj.CoreCompileInputs.cache
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ChatApp.dll
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\refint\ChatApp.dll
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ChatApp.pdb
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ChatApp.genruntimeconfig.cache
+C:\Users\Kryso\RiderProjects\ChatApp\ChatApp\obj\Debug\net6.0\ref\ChatApp.dll
