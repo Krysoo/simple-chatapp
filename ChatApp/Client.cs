@@ -2,5 +2,8 @@
 
 public class Client
 {
-    
+    public void ConnectToServer()
+    {
+        //todo
+    }
 }
