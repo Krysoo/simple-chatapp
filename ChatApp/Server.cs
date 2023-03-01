@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using System.Net.Sockets;
-using ChatApp.Logs;
 using Logs;
 
 namespace ChatApp;

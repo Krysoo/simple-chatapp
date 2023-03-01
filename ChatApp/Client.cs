@@ -20,7 +20,7 @@ public class Client
                 NetworkStream stream = client.GetStream();
                 LogsManagement lm = new LogsManagement();
                 
-                lm.GetLogs().Add(new Log(DateTime.Now, user.Name, data));
+                lm.GetLogs().Add(new Log(DateTime.Now, user.Name, message));
                 
                 stream.Write(data, 0, data.Length);
 
