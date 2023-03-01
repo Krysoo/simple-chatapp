@@ -1,12 +1,14 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using ChatApp.Logs;
+using Logs;
 
 namespace ChatApp;
 
 public class Server
 {
 
-    public void StartServer(string ip, int port)
+    public void StartServer(string ip, int port, User user)
     {
         TcpListener server = null;
         try
@@ -18,33 +20,36 @@ public class Server
 
             server.Start();
 
+            LogsManagement lm = new LogsManagement();
+            
             Byte[] bytes = new byte[256];
             String data = null;
 
             //nasłuchiwanie
             while (true)
             {
-                Console.WriteLine("Trwa lączenie z serwerem...");
                 using TcpClient client = server.AcceptTcpClient();
-                Console.WriteLine("Połaczono!");
 
                 data = null;
 
                 NetworkStream stream = client.GetStream();
-
+                
                 int i;
 
                 while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
                 {
+                    
                     data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
-                    Console.WriteLine("Received: {0}", data);
+                    
+                    lm.GetLogs().Add(new Log(DateTime.Now, user.Name, data));
+                    
+                    Console.WriteLine(user.Name + "@" + user.PCName + " >> " + data);
 
                     data = data.ToUpper();
 
                     byte[] msg = System.Text.Encoding.ASCII.GetBytes(data);
 
                     stream.Write(msg, 0, msg.Length);
-                    Console.WriteLine("Sent: {0}", data);
                 }
             }
         }
