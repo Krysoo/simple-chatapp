@@ -13,11 +13,17 @@ namespace ChatApp
             {
                 try
                 {
+
+                    Console.WriteLine("Aby zapisac logi tej wiadomosci uzyj komendy '&savelogs;'");
+                    bool doesSaveLogs = Console.ReadLine().Equals("&savelogs;");
+
                     TcpListener listener = new TcpListener(IPAddress.Any, 13000);
                     listener.Start();
 
                     Console.Clear();
                     Console.WriteLine("> Uruchomiono połączenie");
+
+                    DateTime now = DateTime.Now;
 
                     // lista clientow
                     List<TcpClient> clients = new List<TcpClient>();
@@ -29,7 +35,7 @@ namespace ChatApp
 
                         Console.Clear();
                         Console.WriteLine("> Połączono z klientem");
-                        
+
                         NetworkStream stream = client.GetStream();
 
                         while (true)
@@ -48,19 +54,18 @@ namespace ChatApp
                             Console.Write("Server > ");
                             string response = Console.ReadLine();
 
-                            bool doesSaveLogs = message.Equals("&savelogs;");
                             LogsManagement log = new LogsManagement();
-                            
+
                             data = Encoding.ASCII.GetBytes(response);
                             stream.Write(data, 0, data.Length);
 
                             if (doesSaveLogs)
                             {
-                                log.GetLogs().Add(new Log(DateTime.Now, "Client", message.ToString()));
-                                log.GetLogs().Add(new Log(DateTime.Now, "Server", response.ToString()));
-                                log.SaveLogs();
+                                log.GetLogs().Add(new Log(now, " Client:", message.ToString()));
+                                log.GetLogs().Add(new Log(now, " Server:", response.ToString()));
+                                log.SaveLogs(now);
                             }
-                            
+
                             foreach (TcpClient c in clients)
                             {
                                 if (c != client)
@@ -76,9 +81,13 @@ namespace ChatApp
                         client.Close();
                     }
                 }
+                catch (IOException)
+                {
+                    Console.WriteLine("Client rozłączył się");
+                }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error: " + ex.Message);
+                    Console.WriteLine("Error: " + ex.Message );
                 }
             }
         }

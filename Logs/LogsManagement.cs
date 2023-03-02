@@ -9,13 +9,14 @@ public class LogsManagement
         return logs;
     }
 
-    public void SaveLogs()
+    public void SaveLogs(DateTime now)
     {
-        using (StreamWriter sw = File.AppendText(DateTime.Now + ".txt"))
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        using (StreamWriter sw = File.AppendText(path + @"\ChatAppLogs\" +  now.Day + "-" + now.Month + "-" + now.Year + "-" + now.Hour + "-" + now.Minute + "-" + now.Second + ".txt"))
         {
             foreach (var log in logs)
             {
-                sw.WriteLine(log.data.ToString() + " " + log.type + " " + log.message);
+                sw.WriteLine(log.data.ToString() + log.type + " " + log.message);
             }
         }
     }

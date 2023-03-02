@@ -10,10 +10,16 @@ namespace Client {
             {
                 try
                 {
+                    Console.WriteLine("Aby zapisac logi tej wiadomosci uzyj komendy '&savelogs;'");
+
+                    bool doesSaveLogs = Console.ReadLine().Equals("&savelogs;");
+
                     TcpClient client = new TcpClient("127.0.0.1", 13000);
 
                     Console.Clear();
                     Console.WriteLine("> Nawiązano połączenie z serwerem");
+
+                    DateTime now = DateTime.Now;
 
                     NetworkStream stream = client.GetStream();
 
@@ -22,9 +28,8 @@ namespace Client {
                         Console.Write("Client > ");
                         string message = Console.ReadLine();
 
-                        bool doesSaveLogs = message.Equals("&savelogs;");
                         LogsManagement log = new();
-                        
+
                         byte[] data = Encoding.ASCII.GetBytes(message);
                         stream.Write(data, 0, data.Length);
 
@@ -41,18 +46,22 @@ namespace Client {
                         Console.WriteLine("Server > " + response.ToString());
                         if (doesSaveLogs)
                         {
-                            log.GetLogs().Add(new Log(DateTime.Now, "Client", message));
-                            log.GetLogs().Add(new Log(DateTime.Now, "Server", response.ToString()));
-                            log.SaveLogs();
+                            log.GetLogs().Add(new Log(now, " Client:", message));
+                            log.GetLogs().Add(new Log(now, " Server:", response.ToString()));
+                            log.SaveLogs(now);
                         }
                     }
 
                     stream.Close();
                     client.Close();
                 }
+                catch (SocketException ex)
+                {
+                    Console.WriteLine("Serwer nie dziala");
+                }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Error: " + ex.Message);
                 }
             }
         }
