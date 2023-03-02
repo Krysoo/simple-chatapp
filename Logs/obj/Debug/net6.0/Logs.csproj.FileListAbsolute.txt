@@ -1,0 +1,12 @@
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\bin\Debug\net6.0\Logs.deps.json
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\bin\Debug\net6.0\Logs.dll
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\bin\Debug\net6.0\Logs.pdb
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\Logs.csproj.AssemblyReference.cache
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\Logs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\Logs.AssemblyInfoInputs.cache
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\Logs.AssemblyInfo.cs
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\Logs.csproj.CoreCompileInputs.cache
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\Logs.dll
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\refint\Logs.dll
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\Logs.pdb
+C:\Users\Kryso\RiderProjects\ChatApp\Logs\obj\Debug\net6.0\ref\Logs.dll

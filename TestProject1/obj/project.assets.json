@@ -1812,11 +1812,24 @@
       "ChatApp/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Logs": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/ChatApp.dll": {}
         },
         "runtime": {
           "bin/placeholder/ChatApp.dll": {}
+        }
+      },
+      "Logs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Logs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Logs.dll": {}
         }
       }
     }
@@ -6118,6 +6131,11 @@
       "type": "project",
       "path": "../ChatApp/ChatApp.csproj",
       "msbuildProject": "../ChatApp/ChatApp.csproj"
+    },
+    "Logs/1.0.0": {
+      "type": "project",
+      "path": "../Logs/Logs.csproj",
+      "msbuildProject": "../Logs/Logs.csproj"
     }
   },
   "projectFileDependencyGroups": {

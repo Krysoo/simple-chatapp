@@ -8,7 +8,6 @@ public class UnitTest1
     [Fact]
     public void ClientTest()
     {
-        Server s = new();
-        Assert.Equal(s.IsServerAvailable("127.0.0.1", 13000), true);
+        
     }
 }

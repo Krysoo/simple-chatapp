@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
-      "ChatApp/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/ChatApp.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ChatApp.dll": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "ChatApp/1.0.0": {
-      "type": "project",
-      "path": "../ChatApp/ChatApp.csproj",
-      "msbuildProject": "../ChatApp/ChatApp.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "ChatApp >= 1.0.0"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
     "C:\\Users\\Kryso\\.nuget\\packages\\": {}
@@ -50,11 +31,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\Kryso\\RiderProjects\\ChatApp\\ChatApp\\ChatApp.csproj": {
-              "projectPath": "C:\\Users\\Kryso\\RiderProjects\\ChatApp\\ChatApp\\ChatApp.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

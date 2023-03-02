@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ChatAppClientSide/1.0.0": {
+        "dependencies": {
+          "Logs": "1.0.0"
+        },
+        "runtime": {
+          "ChatAppClientSide.dll": {}
+        }
+      },
+      "Logs/1.0.0": {
+        "runtime": {
+          "Logs.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ChatAppClientSide/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Logs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

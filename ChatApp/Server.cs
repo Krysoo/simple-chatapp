@@ -1,84 +1,75 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using Logs;
 
-namespace ChatApp;
 
-public class Server
+namespace ChatApp
 {
-
-    public void StartServer(string ip, int port, User user)
+    class Server
     {
-        TcpListener server = null;
-        try
+        public void StartServer()
         {
-
-            IPAddress address = IPAddress.Parse(ip);
-
-            server = new TcpListener(address, port);
-
-            server.Start();
-
-            LogsManagement lm = new LogsManagement();
-            
-            Byte[] bytes = new byte[256];
-            String data = null;
-
-            //nasłuchiwanie
-            while (true)
             {
-                using TcpClient client = server.AcceptTcpClient();
-
-                data = null;
-
-                NetworkStream stream = client.GetStream();
-                
-                int i;
-
-                while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
+                try
                 {
-                    
-                    data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
-                    
-                    lm.GetLogs().Add(new Log(DateTime.Now, user.Name, data));
-                    
-                    Console.WriteLine(user.Name + "@" + user.PCName + " >> " + data);
+                    TcpListener listener = new TcpListener(IPAddress.Any, 13000);
+                    listener.Start();
 
-                    data = data.ToUpper();
+                    Console.Clear();
+                    Console.WriteLine("> Uruchomiono połączenie");
 
-                    byte[] msg = System.Text.Encoding.ASCII.GetBytes(data);
+                    // lista clientow
+                    List<TcpClient> clients = new List<TcpClient>();
 
-                    stream.Write(msg, 0, msg.Length);
+                    while (true)
+                    {
+                        TcpClient client = listener.AcceptTcpClient();
+                        clients.Add(client);
+
+                        Console.Clear();
+                        Console.WriteLine("> Połączono z klientem");
+                        
+                        NetworkStream stream = client.GetStream();
+
+                        while (true)
+                        {
+                            byte[] data = new byte[256];
+                            StringBuilder message = new StringBuilder();
+                            int bytes = 0;
+                            do
+                            {
+                                bytes = stream.Read(data, 0, data.Length);
+                                message.Append(Encoding.ASCII.GetString(data, 0, bytes));
+                            } while (stream.DataAvailable);
+
+                            Console.WriteLine("Client > " + message.ToString());
+
+                            Console.Write("Server > ");
+                            string response = Console.ReadLine();
+                            data = Encoding.ASCII.GetBytes(response);
+                            stream.Write(data, 0, data.Length);
+
+                            foreach (TcpClient c in clients)
+                            {
+                                if (c != client)
+                                {
+                                    stream = c.GetStream();
+                                    data = Encoding.ASCII.GetBytes(message.ToString());
+                                    stream.Write(data, 0, data.Length);
+                                }
+                            }
+                        }
+
+                        stream.Close();
+                        client.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
                 }
             }
         }
-        catch (SocketException e)
-        {
-            Console.WriteLine("SocketException: {0}", e);
-        }
-        finally
-        {
-            server.Stop();
-        }
-        Console.WriteLine("Wciśnij enter aby kontynuowac");
-        Console.Read();
     }
-    
-    public bool IsServerAvailable(string ip, int port)
-    {
-        using (TcpClient client = new TcpClient())
-        {
-            try
-            {
-                client.Connect(ip, port);
-            }
-            catch (SocketException)
-            {
-                return false;
-            }
-            client.Close();
-            return true;
-        }
-    }
-
 }

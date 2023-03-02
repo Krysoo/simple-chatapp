@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Logs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Logs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Logs.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Logs/1.0.0": {
+      "type": "project",
+      "path": "../Logs/Logs.csproj",
+      "msbuildProject": "../Logs/Logs.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Logs >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Kryso\\.nuget\\packages\\": {}
@@ -31,7 +50,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Kryso\\RiderProjects\\ChatApp\\Logs\\Logs.csproj": {
+              "projectPath": "C:\\Users\\Kryso\\RiderProjects\\ChatApp\\Logs\\Logs.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
