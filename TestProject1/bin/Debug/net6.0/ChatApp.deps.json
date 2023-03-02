@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "ChatApp/1.0.0": {
+        "dependencies": {
+          "Logs": "1.0.0"
+        },
         "runtime": {
           "ChatApp.dll": {}
+        }
+      },
+      "Logs/1.0.0": {
+        "runtime": {
+          "Logs.dll": {}
         }
       }
     }
   },
   "libraries": {
     "ChatApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Logs/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

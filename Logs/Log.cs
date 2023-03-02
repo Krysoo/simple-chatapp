@@ -3,13 +3,14 @@
 public class Log
 {
     public DateTime data { get; set; }
-    public string nickname { get; set; }
+    // type = client/server
+    public string type { get; set; }
     public string message { get; set; }
 
-    public Log(DateTime data, string nickname, string message)
+    public Log(DateTime data, string type, string message)
     {
         this.data = data;
-        this.nickname = nickname;
+        this.type = type;
         this.message = message;
     }
 }

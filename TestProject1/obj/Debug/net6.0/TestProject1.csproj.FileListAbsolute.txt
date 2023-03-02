@@ -103,3 +103,5 @@ C:\Users\Kryso\RiderProjects\ChatApp\TestProject1\obj\Debug\net6.0\refint\TestPr
 C:\Users\Kryso\RiderProjects\ChatApp\TestProject1\obj\Debug\net6.0\TestProject1.pdb
 C:\Users\Kryso\RiderProjects\ChatApp\TestProject1\obj\Debug\net6.0\TestProject1.genruntimeconfig.cache
 C:\Users\Kryso\RiderProjects\ChatApp\TestProject1\obj\Debug\net6.0\ref\TestProject1.dll
+C:\Users\Kryso\RiderProjects\ChatApp\TestProject1\bin\Debug\net6.0\Logs.dll
+C:\Users\Kryso\RiderProjects\ChatApp\TestProject1\bin\Debug\net6.0\Logs.pdb

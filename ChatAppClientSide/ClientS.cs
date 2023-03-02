@@ -1,5 +1,6 @@
 ﻿using System.Net.Sockets;
 using System.Text;
+using Logs;
 
 namespace Client {
     class ClientS
@@ -20,6 +21,10 @@ namespace Client {
                     {
                         Console.Write("Client > ");
                         string message = Console.ReadLine();
+
+                        bool doesSaveLogs = message.Equals("&savelogs;");
+                        LogsManagement log = new();
+                        
                         byte[] data = Encoding.ASCII.GetBytes(message);
                         stream.Write(data, 0, data.Length);
 
@@ -34,6 +39,12 @@ namespace Client {
                         } while (stream.DataAvailable);
 
                         Console.WriteLine("Server > " + response.ToString());
+                        if (doesSaveLogs)
+                        {
+                            log.GetLogs().Add(new Log(DateTime.Now, "Client", message));
+                            log.GetLogs().Add(new Log(DateTime.Now, "Server", response.ToString()));
+                            log.SaveLogs();
+                        }
                     }
 
                     stream.Close();

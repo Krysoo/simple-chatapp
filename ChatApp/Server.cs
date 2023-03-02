@@ -47,9 +47,20 @@ namespace ChatApp
 
                             Console.Write("Server > ");
                             string response = Console.ReadLine();
+
+                            bool doesSaveLogs = message.Equals("&savelogs;");
+                            LogsManagement log = new LogsManagement();
+                            
                             data = Encoding.ASCII.GetBytes(response);
                             stream.Write(data, 0, data.Length);
 
+                            if (doesSaveLogs)
+                            {
+                                log.GetLogs().Add(new Log(DateTime.Now, "Client", message.ToString()));
+                                log.GetLogs().Add(new Log(DateTime.Now, "Server", response.ToString()));
+                                log.SaveLogs();
+                            }
+                            
                             foreach (TcpClient c in clients)
                             {
                                 if (c != client)
